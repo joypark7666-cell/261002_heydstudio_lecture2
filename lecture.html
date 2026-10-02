@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>헤이디 | 강의 문의</title>
+<!-- 강의 문의 페이지 비활성화 중: 검색에 노출되지 않게 하고, 들어오면 메인으로 보낸다.
+     다시 열 때: 아래 meta·script 두 줄을 지우고, ui/Nav2.jsx 의 SHOW_LECTURE 를 true 로 바꾼다. -->
+<meta name="robots" content="noindex">
+<script>location.replace("/");</script>
 <script src="./support.js"></script>
 <script type="module" src="./firebase-init.js"></script>
 </head>
@@ -58,7 +62,7 @@
     }
   </style>
 </helmet>
-<div data-screen-label="Nav"><x-import component-from-global-scope="Nav2" from="./ui/Nav2.jsx?v=3" hint-size="100%,72px"></x-import></div>
+<div data-screen-label="Nav"><x-import component-from-global-scope="Nav2" from="./ui/Nav2.jsx?v=4" hint-size="100%,72px"></x-import></div>
 <div data-screen-label="LectureHero"><x-import component-from-global-scope="LectureHero" from="./ui/LectureHero.jsx?v=1" hint-size="100%,560px"></x-import></div>
 <div data-screen-label="LectureTopics"><x-import component-from-global-scope="LectureTopics" from="./ui/LectureTopics.jsx?v=1" hint-size="100%,640px"></x-import></div>
 <div data-screen-label="LectureProcess"><x-import component-from-global-scope="LectureProcess" from="./ui/LectureProcess.jsx?v=1" hint-size="100%,560px"></x-import></div>
