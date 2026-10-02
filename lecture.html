@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>헤이디 | 강의 문의</title>
 <script src="./support.js"></script>
+<script type="module" src="./firebase-init.js"></script>
 </head>
 <body>
 <!-- Netlify Forms 감지용 숨김 폼 (배포 시 Netlify 봇이 이 폼을 읽어 등록). 실제 제출은 LectureForm의 fetch가 담당.
@@ -61,7 +62,7 @@
 <div data-screen-label="LectureHero"><x-import component-from-global-scope="LectureHero" from="./ui/LectureHero.jsx?v=1" hint-size="100%,560px"></x-import></div>
 <div data-screen-label="LectureTopics"><x-import component-from-global-scope="LectureTopics" from="./ui/LectureTopics.jsx?v=1" hint-size="100%,640px"></x-import></div>
 <div data-screen-label="LectureProcess"><x-import component-from-global-scope="LectureProcess" from="./ui/LectureProcess.jsx?v=1" hint-size="100%,560px"></x-import></div>
-<div data-screen-label="LectureForm"><x-import component-from-global-scope="LectureForm" from="./ui/LectureForm.jsx?v=1" hint-size="100%,1100px"></x-import></div>
+<div data-screen-label="LectureForm"><x-import component-from-global-scope="LectureForm" from="./ui/LectureForm.jsx?v=2" hint-size="100%,1100px"></x-import></div>
 <div data-screen-label="Footer"><x-import component-from-global-scope="Footer" from="./ui/Contact.jsx?v=5" hint-size="100%,110px"></x-import></div>
 </x-dc>
 </body>

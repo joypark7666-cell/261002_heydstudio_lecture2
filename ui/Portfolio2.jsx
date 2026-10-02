@@ -107,7 +107,7 @@ function Portfolio2() {
         {paged.map((it) => (
           <Card key={it.id} variant="default" padding={0} hover style={{ overflow: "hidden" }}>
             <div
-              onClick={() => { if (it.image) setOpen(it); }}
+              onClick={() => { if (it.image) { setOpen(it); window.heydTrack && window.heydTrack("portfolio_open", { title: it.title }); } }}
               style={{ aspectRatio: "16/10", background: "var(--surface-brand-soft)", cursor: it.image ? "pointer" : "default" }}
             >
               {it.image ? (

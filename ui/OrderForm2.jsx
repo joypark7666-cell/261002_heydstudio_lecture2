@@ -30,6 +30,33 @@ function OrderForm2() {
   const [sent, setSent] = React.useState(false);
   const [error, setError] = React.useState("");
 
+  // Google 로그인(선택): 로그인하면 이름·이메일을 비어 있는 칸에 채워준다 (Firebase Auth, 저장 안 함)
+  const [auth, setAuth] = React.useState({ available: false, user: null });
+  React.useEffect(() => (window.heydAuth ? window.heydAuth.subscribe(setAuth) : undefined), []);
+  React.useEffect(() => {
+    if (!auth.user) return;
+    setName((v) => v || auth.user.name);
+    setEmail((v) => v || auth.user.email);
+  }, [auth.user]);
+  const googleSignIn = async () => {
+    try { await window.heydAuth.signIn(); } catch (e) { setError("Google 로그인에 실패했어요. 팝업 차단 여부를 확인해 주세요."); }
+  };
+  const googleBox = auth.available ? (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "12px 16px", background: "var(--surface-subtle)", borderRadius: "var(--r-md)", fontSize: 14, color: "var(--text-body)" }}>
+      {auth.user ? (
+        <React.Fragment>
+          <span><b style={{ fontWeight: 700 }}>{auth.user.email}</b> 계정 정보를 불러왔어요.</span>
+          <button type="button" onClick={() => window.heydAuth.signOut()} style={{ border: "none", background: "none", color: "var(--text-muted)", textDecoration: "underline", cursor: "pointer", fontSize: 13.5 }}>로그아웃</button>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <span>Google 계정으로 이름·이메일을 바로 채울 수 있어요. <span style={{ color: "var(--text-faint)", fontSize: 13 }}>(선택)</span></span>
+          <button type="button" onClick={googleSignIn} style={{ padding: "8px 14px", borderRadius: "var(--r-pill)", border: "1px solid var(--border-default)", background: "#fff", color: "var(--text-strong)", fontWeight: 600, fontSize: 13.5, cursor: "pointer" }}>Google로 불러오기</button>
+        </React.Fragment>
+      )}
+    </div>
+  ) : null;
+
   const toggleUsage = (u) =>
     setUsage((prev) => (prev.includes(u) ? prev.filter((x) => x !== u) : [...prev, u]));
   const toggleScope = (s) =>
@@ -95,6 +122,7 @@ function OrderForm2() {
     try {
       const res = await fetch("/", { method: "POST", body: fd });
       if (res.ok) {
+        window.heydTrack && window.heydTrack("inquiry_submit", { type: "design" });
         setSent(true);
       } else {
         setError("전송에 실패했어요. 잠시 후 다시 시도해 주세요.");
@@ -192,6 +220,7 @@ function OrderForm2() {
               <p style={{ fontSize: 12.5, color: "var(--text-faint)", marginTop: 8 }}>* 첨부 용량이 크면(대용량 PPT 등) 전송이 제한될 수 있어요. 이 경우 클라우드 링크를 '디자인 방향성'란에 남겨주세요.</p>
             </Field>
 
+            {googleBox}
             <div className="heyd-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
               <Field label="이름 / 회사">
                 <Input placeholder="홍길동 / (주)헤이디" value={name} onChange={(e) => setName(e.target.value)} />
