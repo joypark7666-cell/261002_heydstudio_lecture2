@@ -1,0 +1,82 @@
+/* ===== HeyD Page — Color System =====
+   Brand ratio 6:3:1  →  Main (blue) : Sub (periwinkle) : Point (mint)
+   Main #0139EE dominates; Sub #7186EC supports; Point #09DAB6 accents only. */
+
+:root {
+  /* ---- Brand core ---- */
+  --brand-main: #0139EE;      /* 60% — primary actions, key headings, hero fills */
+  --brand-sub: #7186EC;       /* 30% — secondary surfaces, supporting graphics */
+  --brand-point: #09DAB6;     /* 10% — highlights, single-focus accents only */
+
+  /* ---- Main (blue) scale ---- */
+  --blue-50: #eef2ff;
+  --blue-100: #dbe3ff;
+  --blue-200: #b7c6ff;
+  --blue-300: #8aa1ff;
+  --blue-400: #4f70fb;
+  --blue-500: #0139EE;
+  --blue-600: #0130ca;
+  --blue-700: #0227a1;
+  --blue-800: #06227e;
+  --blue-900: #0a1f63;
+
+  /* ---- Sub (periwinkle) scale ---- */
+  --sub-100: #e7eafc;
+  --sub-200: #cdd4f7;
+  --sub-300: #a9b5f1;
+  --sub-400: #7186EC;
+  --sub-500: #5a70e6;
+  --sub-600: #4658c9;
+
+  /* ---- Point (mint) scale ---- */
+  --point-100: #d6fbf3;
+  --point-200: #9df1e2;
+  --point-300: #4be6cc;
+  --point-400: #09DAB6;
+  --point-500: #06b295;
+
+  /* ---- Neutrals (cool-tinted grays) ---- */
+  --gray-0: #ffffff;
+  --gray-25: #fbfcfe;
+  --gray-50: #f5f7fb;
+  --gray-100: #eceff6;
+  --gray-200: #dde2ec;
+  --gray-300: #c4cbda;
+  --gray-400: #9aa3b7;
+  --gray-500: #6e7789;
+  --gray-600: #4d5566;
+  --gray-700: #363d4c;
+  --gray-800: #232936;
+  --gray-900: #141821;
+
+  /* ---- Semantic: text ---- */
+  --text-strong: var(--gray-900);
+  --text-body: var(--gray-700);
+  --text-muted: var(--gray-500);
+  --text-faint: var(--gray-400);
+  --text-on-brand: #ffffff;
+  --text-brand: var(--brand-main);
+  --text-link: var(--brand-main);
+
+  /* ---- Semantic: surface ---- */
+  --surface-page: #ffffff;
+  --surface-subtle: var(--gray-50);
+  --surface-card: #ffffff;
+  --surface-inverse: var(--gray-900);
+  --surface-brand: var(--brand-main);
+  --surface-brand-soft: var(--blue-50);
+  --surface-sub-soft: var(--sub-100);
+  --surface-point-soft: var(--point-100);
+
+  /* ---- Semantic: border ---- */
+  --border-subtle: var(--gray-200);
+  --border-default: var(--gray-300);
+  --border-strong: var(--gray-400);
+  --border-brand: var(--brand-main);
+
+  /* ---- Semantic: status ---- */
+  --success: #12b76a;
+  --warning: #f79009;
+  --danger: #f04438;
+  --info: var(--brand-main);
+}

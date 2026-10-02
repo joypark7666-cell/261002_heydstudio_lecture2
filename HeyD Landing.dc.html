@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/base.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/_ds_bundle.js"></script>
+  <script src="ui/image-slot.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--surface-page); }
+    a { color: var(--brand-main); text-decoration: none; }
+    a:hover { color: var(--blue-700); }
+    nav a { color: var(--text-body); }
+    nav a:hover { color: var(--brand-main); }
+
+    /* ===== 모바일 반응형 (<=768px) ===== */
+    @media (max-width: 768px) {
+      .heyd-pad { padding: 64px 20px !important; }
+      .heyd-2col, .heyd-portfolio-grid, .heyd-designer-grid { grid-template-columns: 1fr !important; }
+      .heyd-designer-grid { padding: 56px 20px 0 !important; gap: 8px !important; }
+      .heyd-designer-text { padding-bottom: 32px !important; }
+      .heyd-h2 { font-size: 26px !important; }
+      .heyd-hero-tile { display: none !important; }
+      .heyd-hero-inner { padding: 64px 20px 72px !important; }
+      .heyd-hero-h1 { font-size: 32px !important; }
+      .heyd-hero-btns, .heyd-contact-btns { flex-direction: column !important; width: 100% !important; }
+      .heyd-hero-btns > *, .heyd-contact-btns > * { width: 100% !important; }
+      .heyd-hero-stats { flex-wrap: wrap !important; justify-content: center !important; gap: 6px 16px !important; }
+      .heyd-designer-photo { height: auto !important; }
+      .heyd-designer-glow { display: none !important; }
+      .heyd-designer-img { position: static !important; height: auto !important; max-width: 68% !important; transform: none !important; margin: 8px auto 0 !important; display: block !important; }
+      .heyd-designer-card { position: static !important; right: auto !important; top: auto !important; max-width: 300px; margin: 16px auto 0 !important; }
+      .heyd-steps { flex-direction: column !important; gap: 12px !important; }
+      .heyd-step-connector { display: none !important; }
+      .heyd-contact-box { padding: 40px 22px !important; }
+    }
+  </style>
+</helmet>
+<div data-screen-label="Nav"><x-import component-from-global-scope="Nav2" from="./ui/Nav2.jsx?v=2" hint-size="100%,72px"></x-import></div>
+<div data-screen-label="Hero"><x-import component-from-global-scope="Hero2" from="./ui/Hero2.jsx?v=23" hint-size="100%,680px"></x-import></div>
+<div data-screen-label="Designer"><x-import component-from-global-scope="Designer3" from="./ui/Designer3.jsx?v=26" hint-size="100%,640px" style="position: relative"></x-import></div>
+<div data-screen-label="Portfolio"><x-import component-from-global-scope="Portfolio2" from="./ui/Portfolio2.jsx?v=10" hint-size="100%,900px"></x-import></div>
+<div data-screen-label="Clients"><x-import component-from-global-scope="Clients" from="./ui/Clients.jsx?v=16" hint-size="100%,560px"></x-import></div>
+<div data-screen-label="Services"><x-import component-from-global-scope="Services2" from="./ui/Services2.jsx?v=22" hint-size="100%,720px"></x-import></div>
+<div data-screen-label="HowItWorks"><x-import component-from-global-scope="HowItWorks" from="./ui/HowItWorks.jsx?v=16" hint-size="100%,560px"></x-import></div>
+<div data-screen-label="OrderForm"><x-import component-from-global-scope="OrderForm2" from="./ui/OrderForm2.jsx?v=22" hint-size="100%,900px"></x-import></div>
+<div data-screen-label="Notices"><x-import component-from-global-scope="Notices" from="./ui/Notices.jsx?v=7" hint-size="100%,520px"></x-import></div>
+<div data-screen-label="Footer"><x-import component-from-global-scope="Footer" from="./ui/Contact.jsx?v=5" hint-size="100%,110px"></x-import></div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/* Pretendard — the sole typeface of HeyD Page. Korean + Latin.
+   Local OTF binaries replaced with the official CDN webfont build
+   (the .dc project ships 9 OTFs; they exceed the sync size cap). */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
