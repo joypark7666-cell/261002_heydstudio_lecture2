@@ -64,18 +64,18 @@ async function init() {
       };
     }
 
-    // Authentication: Google 로그인 (이름·이메일 자동 입력용, 서버에 저장하지 않음)
+    // Authentication: 사이트 전체 Google 로그인 (상단 메뉴의 로그인 버튼, 사이트가 따로 저장하는 정보는 없음)
     const auth = authMod.getAuth(app);
     auth.languageCode = "ko";
     heydAuth.available = true;
     heydAuth.signIn = async () => {
       try {
-        await authMod.signInWithPopup(auth, new authMod.GoogleAuthProvider());
+        const r = await authMod.signInWithPopup(auth, new authMod.GoogleAuthProvider());
+        return r && r.user ? { name: r.user.displayName || "", email: r.user.email || "" } : null;
       } catch (e) {
         if (e && (e.code === "auth/popup-closed-by-user" || e.code === "auth/cancelled-popup-request")) return null; // 사용자가 창을 닫음
         throw e;
       }
-      return heydAuth.user;
     };
     heydAuth.signOut = () => authMod.signOut(auth);
     authMod.onAuthStateChanged(auth, (u) => {
