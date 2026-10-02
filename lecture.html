@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>헤이디 | 강의 문의</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<!-- Netlify Forms 감지용 숨김 폼 (배포 시 Netlify 봇이 이 폼을 읽어 등록). 실제 제출은 LectureForm의 fetch가 담당.
+     필드는 LectureForm이 보내는 필드와 정확히 일치해야 한다. -->
+<form name="lecture-inquiry" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input type="hidden" name="form-name" value="lecture-inquiry" />
+  <input type="text" name="bot-field" />
+  <input type="text" name="subject" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <textarea name="message"></textarea>
+  <input type="file" name="attachment" />
+</form>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/tokens/base.css">
+  <link rel="stylesheet" href="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="_ds/heyd-page-design-system-d9d45087-3831-464d-bf22-8ddfdb609358/_ds_bundle.js"></script>
+  <script src="ui/image-slot.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--surface-page); }
+    a { color: var(--brand-main); text-decoration: none; }
+    a:hover { color: var(--blue-700); }
+    nav a { color: var(--text-body); }
+    nav a:hover { color: var(--brand-main); }
+
+    /* ===== 모바일 반응형 (<=768px) — index.html 과 같은 규칙 + 강의 페이지용(.heyd-3col) ===== */
+    @media (max-width: 768px) {
+      .heyd-pad { padding: 64px 20px !important; }
+      .heyd-2col, .heyd-3col { grid-template-columns: 1fr !important; }
+      .heyd-h2 { font-size: 26px !important; }
+      .heyd-nav-inner { padding: 0 20px !important; }
+      .heyd-nav-links { gap: 2px !important; }
+      .heyd-nav-links a { padding: 8px 12px !important; font-size: 14px !important; }
+      /* 히어로 */
+      .heyd-hero-tile { display: none !important; }
+      .heyd-hero-inner { padding: 64px 20px 72px !important; }
+      .heyd-hero-h1 { font-size: 32px !important; }
+      .heyd-hero-btns { flex-direction: column !important; width: 100% !important; }
+      .heyd-hero-btns > * { width: 100% !important; }
+      /* 진행 방식: 세로 스택 */
+      .heyd-steps { flex-direction: column !important; gap: 12px !important; }
+      .heyd-step-connector { display: none !important; }
+    }
+  </style>
+</helmet>
+<div data-screen-label="Nav"><x-import component-from-global-scope="Nav2" from="./ui/Nav2.jsx?v=3" hint-size="100%,72px"></x-import></div>
+<div data-screen-label="LectureHero"><x-import component-from-global-scope="LectureHero" from="./ui/LectureHero.jsx?v=1" hint-size="100%,560px"></x-import></div>
+<div data-screen-label="LectureTopics"><x-import component-from-global-scope="LectureTopics" from="./ui/LectureTopics.jsx?v=1" hint-size="100%,640px"></x-import></div>
+<div data-screen-label="LectureProcess"><x-import component-from-global-scope="LectureProcess" from="./ui/LectureProcess.jsx?v=1" hint-size="100%,560px"></x-import></div>
+<div data-screen-label="LectureForm"><x-import component-from-global-scope="LectureForm" from="./ui/LectureForm.jsx?v=1" hint-size="100%,1100px"></x-import></div>
+<div data-screen-label="Footer"><x-import component-from-global-scope="Footer" from="./ui/Contact.jsx?v=5" hint-size="100%,110px"></x-import></div>
+</x-dc>
+</body>
+</html>
